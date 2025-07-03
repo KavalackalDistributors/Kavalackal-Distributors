@@ -48,7 +48,7 @@ body {
     z-index: 1;
 }
 
-.star-background {
+.main-nav .star-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -57,8 +57,8 @@ body {
     z-index: 2;
 }
 
-.star-background::before,
-.star-background::after {
+.main-nav .star-background::before,
+.main-nav .star-background::after {
     content: '';
     position: absolute;
     top: 0;
@@ -75,7 +75,7 @@ body {
     filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.7));
 }
 
-.star-background::after {
+.main-nav .star-background::after {
     background-image: 
         radial-gradient(#fff, rgba(255, 255, 255, 0.9) 1.5px, transparent 3px),
         radial-gradient(#fff, rgba(255, 255, 255, 0.8) 2.5px, transparent 4px),
@@ -99,7 +99,7 @@ body {
     }
 }
 
-.lightning {
+.main-nav .lightning {
     position: absolute;
     top: 0;
     left: 0;
@@ -141,60 +141,135 @@ body {
 
 .nav-items {
     display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 2rem;
     margin-left: auto;
-    position: relative;
+    position: static;
+    width: auto;
+    background: none;
+    padding: 0;
+    box-shadow: none;
+    height: auto;
+    overflow: visible;
     z-index: 4;
 }
 
-.nav-items a {
-    color: white;
+.nav-items a, 
+.nav-items .youtube-link,
+.nav-items .youtube-link i {
+    color: white !important;
     text-decoration: none;
     padding: 8px 15px;
     border-radius: 4px;
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+    z-index: 4;
+    cursor: pointer;
 }
 
 .nav-items a:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    color: #00ffff;
+    color: #00ffff !important;
 }
 
+.nav-items .youtube-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ff0000 !important;
+}
+
+/* YouTube Link Styles */
 .youtube-link {
     display: flex;
     align-items: center;
     gap: 8px;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .youtube-link:hover {
-    color: #ff0000 !important;
+    color: #ff0000;
 }
 
 .youtube-link i {
     font-size: 20px;
 }
 
+.nav-items .youtube-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white !important;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+    z-index: 4;
+    cursor: pointer;
+}
+
+.nav-items .youtube-link i {
+    color: white !important;
+    font-size: 20px;
+}
+
+.nav-items .youtube-link:hover {
+    color: #ff0000 !important;
+}
+
+.footer-content .youtube-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white !important;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-content .youtube-link:hover {
+    color: #ff0000 !important;
+}
+
+.footer-content .youtube-link i {
+    font-size: 20px;
+    color: white !important;
+}
+
 /* Search Styles */
 .search-container {
     position: relative;
     width: 300px;
+    min-width: 200px;
+    max-width: 300px;
     margin: 0 1rem;
-    z-index: 4;
+    display: flex;
+    align-items: center;
+    z-index: 5;
 }
 
 #search {
     width: 100%;
     padding: 8px 40px 8px 15px;
+    font-size: 14px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 20px;
+    outline: none;
     background: rgba(255, 255, 255, 0.1);
     color: white;
-    outline: none;
+    cursor: text;
 }
 
 #search::placeholder {
     color: rgba(255, 255, 255, 0.7);
+}
+
+#search:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
 }
 
 .search-button {
@@ -206,80 +281,131 @@ body {
     border: none;
     color: white;
     cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 6;
 }
 
-/* About page specific styles */
-.about-content {
-    padding: 40px 120px; /* Increased left padding to move content right */
-    max-width: 1200px;
-    margin: 0 auto;
+.search-button:hover {
+    color: #00ffff;
 }
 
-.about-content h2 {
-    font-size: 2em;
-    color: #232f3e;
+.search-icon {
+    display: none;
+}
+
+/* Product Grid and Section Styles */
+.section-container {
+    padding: 20px;
     margin-bottom: 30px;
-    margin-left: 60px; /* Additional left margin for the heading */
+    overflow: hidden;
 }
 
-.about-text {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 40px 80px; /* Increased padding to move text right */
+.section-heading {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: left;
+    padding: 0 20px;
+}
+
+.row-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.product-row {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px 40px;
+    gap: 20px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    width: calc(100% - 80px);
+    flex-wrap: nowrap;
+}
+
+.product-row::-webkit-scrollbar {
+    display: none;
+}
+
+/* Product Card Styles */
+.product {
+    flex: 0 0 auto;
+    width: 220px;
+    background-color: white;
     border-radius: 8px;
+    padding: 1rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.about-text h3 {
-    font-size: 1.5em;
-    color: #232f3e;
-    margin: 25px 0 15px 0;
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-.about-text p {
-    margin: 15px 0;
-    line-height: 1.6;
-    font-size: 1.1em;
+.product img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #f8f9fa;
+    padding: 10px;
+    transition: transform 0.3s ease;
 }
 
-.about-text p i {
-    width: 25px;
-    color: #232f3e;
-    margin-right: 10px;
+.product:hover img {
+    transform: scale(1.05);
 }
 
-.location-link {
-    color: #232f3e;
-    text-decoration: none;
-    transition: color 0.3s ease;
+.product h3 {
+    font-size: 1rem;
+    color: #333;
+    margin: 10px 0;
+    text-align: center;
+    line-height: 1.4;
 }
 
-.location-link:hover {
-    color: #0066cc;
-}
-
-/* Sidebar Styles */
-.sidebar {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1000;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.sidebar .closebtn {
+/* Scroll Button Styles */
+.scroll-button {
     position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.7);
     color: white;
+    border: none;
     cursor: pointer;
-    text-decoration: none;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.scroll-button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.scroll-left {
+    left: 10px;
+}
+
+.scroll-right {
+    right: 10px;
 }
 
 /* Footer Styles */
@@ -302,53 +428,146 @@ footer {
     margin: 0 auto;
 }
 
-/* Responsive Styles */
+/* Sidebar Styles */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    color: white;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    color: white;
+    cursor: pointer;
+}
+
+.contact-info {
+    padding: 20px;
+}
+
+.contact-info h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+/* Mobile Styles */
 @media screen and (max-width: 768px) {
     .main-nav {
         flex-direction: column;
+        padding: 10px;
         height: auto;
-        padding: 1rem;
+        min-height: 60px;
+        gap: 8px;
+    }
+
+    .nav-left {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        order: 1;
     }
 
     .nav-left h1 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+        margin-bottom: 5px;
     }
 
     .search-container {
         width: 100%;
-        margin: 1rem 0;
+        max-width: none;
+        margin: 0;
+        padding: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+        order: 2;
     }
 
     .nav-items {
         width: 100%;
         justify-content: center;
-        gap: 1rem;
+        flex-wrap: wrap;
+        gap: 15px;
+        order: 3;
+        padding: 5px 0;
+        margin-top: 5px;
     }
 
-    .about-content {
-        padding: 20px;
+    .nav-items a {
+        padding: 6px 15px;
+        font-size: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 4px;
+    }
+    
+    #search {
+        width: 100%;
+        height: 36px;
+        font-size: 1rem;
     }
 
-    .about-content h2 {
-        margin-left: 20px;
-        font-size: 1.8em;
+    .search-button {
+        height: 36px;
+        width: 36px;
     }
 
-    .about-text {
-        padding: 20px 30px;
+    .product {
+        width: 160px;
     }
 
-    .about-text h3 {
-        font-size: 1.3em;
+    .product img {
+        width: 140px;
+        height: 140px;
     }
 
-    .about-text p {
-        font-size: 1em;
+    .section-heading {
+        font-size: 20px;
+        padding: 0 10px;
+    }
+
+    .product-row {
+        padding: 10px 20px;
+    }
+
+    .scroll-button {
+        width: 30px;
+        height: 30px;
     }
 
     .footer-content {
         flex-direction: column;
         gap: 10px;
         text-align: center;
+    }
+}
+
+/* High DPI Screen Adjustments */
+@media screen and (max-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+    .product img {
+        width: 120px;
+        height: 120px;
+    }
+
+    #search {
+        font-size: 16px;
     }
 } 
