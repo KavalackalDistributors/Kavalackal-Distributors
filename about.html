@@ -17,6 +17,17 @@
             text-align: left;
             padding: 0 20px;
         }
+
+        /* 📱 Mobile-specific padding */
+        @media screen and (max-width: 768px) {
+            .about-content {
+                padding: 30px 15px;
+            }
+
+            .about-text {
+                padding: 0 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -71,7 +82,11 @@
             <h3>Contact Information</h3>
             <p><i class="fas fa-envelope"></i> kavalackaldistributors@gmail.com</p>
             <p><i class="fas fa-phone"></i> +91 9447607588</p>
-            <p><i class="fas fa-map-marker-alt"></i> <a href="https://g.co/kgs/jpXvDyK" target="_blank" class="location-link">Kavalackal Distributors, Chingavanam, Kottayam, Kerala 686531</a></p>
+            <p><i class="fas fa-map-marker-alt"></i> 
+                <a href="https://g.co/kgs/jpXvDyK" target="_blank" class="location-link">
+                    Kavalackal Distributors, Chingavanam, Kottayam, Kerala 686531
+                </a>
+            </p>
         </div>
     </main>
 
@@ -89,4 +104,5 @@
     <script src="search-handler.js"></script>
 </body>
 </html>
+
 
