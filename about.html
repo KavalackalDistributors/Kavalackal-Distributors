@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>About Us - KAVALACKAL DISTRIBUTORS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div id="auth-overlay" class="auth-overlay">
+        <div id="login-box" class="auth-box">
+            <h2>Login</h2>
+            <input type="text" id="login-identifier" placeholder="Phone Number or Email">
+            <input type="password" id="login-password" placeholder="Password">
+            <div class="auth-actions">
+                <span class="auth-link" id="show-create">Create Account</span>
+            </div>
+            <div id="login-error" class="auth-error"></div>
+            <button id="login-btn" class="auth-btn">Login</button>
+        </div>
+        <div id="create-box" class="auth-box" style="display:none;">
+            <h2>Create</h2>
+            <input type="text" id="create-name" placeholder="Full Name">
+            <input type="text" id="create-identifier" placeholder="Phone Number or Email">
+            <input type="password" id="create-password" placeholder="Password">
+            <div class="auth-actions" style="justify-content: space-between;">
+                <span class="auth-link" id="back-to-login">Back</span>
+                <button id="create-btn" class="auth-btn blue">Create</button>
+            </div>
+            <div id="create-error" class="auth-error"></div>
+        </div>
+    </div>
+    <div id="main-content" style="display:none;">
+    <nav class="main-nav">
+        <div class="nav-left">
+            <h1>KAVALACKAL DISTRIBUTORS</h1>
+        </div>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search products...">
+            <button class="search-button" onclick="handleSearch()">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        <div class="nav-items">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="https://www.youtube.com/@kavalackal" target="_blank" class="youtube-link">
+                <i class="fab fa-youtube"></i>
+                YouTube
+            </a>
+        </div>
+        <div class="star-background"></div>
+        <div class="lightning"></div>
+    </nav>
+
+    <div id="sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="contact-info">
+            <h2>Contact Us</h2>
+            <p>
+                <i class="fas fa-envelope"></i>
+                <span>kavalackaldistributors@gmail.com</span>
+            </p>
+            <p>
+                <i class="fas fa-phone"></i>
+                <span>+91 9447607588</span>
+            </p>
+        </div>
+    </div>
+
+    <main class="about-content">
+        <h2>About Us</h2>
+        <div class="about-text">
+            <p>KAVALACKAL DISTRIBUTORS is a leading distributor of quality products in the region. 
+               Established with a vision to provide excellent service and products to our customers, 
+               we have grown to become a trusted name in the distribution industry.</p>
+            
+            <h3>Our Mission</h3>
+            <p>To provide high-quality products and exceptional service to our customers while 
+               maintaining the highest standards of business ethics.</p>
+
+            <h3>Contact Information</h3>
+            <p><i class="fas fa-envelope"></i> kavalackaldistributors@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +91 9447607588</p>
+            <p><i class="fas fa-map-marker-alt"></i> <a href="https://g.co/kgs/jpXvDyK" target="_blank" class="location-link">Kavalackal Distributors, Chingavanam, Kottayam, Kerala 686531</a></p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>KAVALACKAL DISTRIBUTORS - Official Website</p>
+            <a href="https://www.youtube.com/@kavalackal" target="_blank" class="youtube-link">
+                <i class="fab fa-youtube"></i>
+                YouTube
+            </a>
+        </div>
+    </footer>
+    </div>
+    <script src="script.js"></script>
+    <script src="search.js"></script>
+    <script src="search-handler.js"></script>
+</body>
+</html>
